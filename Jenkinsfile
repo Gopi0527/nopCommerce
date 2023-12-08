@@ -13,7 +13,7 @@ pipeline{
         stage( 'Build the dotnet'){
             steps{
                 sh 'dotnet tool install --global dotnet-sonarscanner
-dotnet sonarscanner begin k:spring-petclinic-gopi_cli o:spring-petclinic-gopi d:sonar.token=SONAR_CLOUD
+dotnet sonarscanner begin d:sonar.host.url=https://sonarcloud.io  k:spring-petclinic-gopi_cli o:spring-petclinic-gopi d:sonar.token=SONAR_CLOUD
 dotnet build -c Release src/NopCommerce.sln
 dotnet sonarscanner end'
             }
